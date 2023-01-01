@@ -22,6 +22,11 @@ app.get('/karyawan',(req,res)=>{
     })
     
 })
+app.get('/totalkaryawan',(req,res)=>{
+    config.pool.query("select count(*) as total from tb_karyawan",(err,rese)=>{
+        res.send(rese)
+    })
+})
 app.get('/datakaryawan',(req,res)=>{
     config.pool.query("SELECT id,nama,tmp_lahir,tgl_lahir,jenis_kelamin,alamat,email,status,jabatan, "+
     "golongan,bulan_kerja,format(jumlah_gaji,'id_ID') as jumlah_gaji,user_login,password from tb_karyawan where id= ?",[req.query.id],(err,rows,fields)=>{
@@ -470,12 +475,14 @@ app.get('/pdfslip',(req,res)=>{
         res.send(has)
     });
 })
-app.post('/ambilfilepdf',(req,res)=>{
-    const file = `gaji_${req.body.id}.pdf`
-    const path = `${__dirname}/filepdf`;
-    const dl = new DownloaderHelper(file,path)
-    dl.on('end',()=>console.log("download completed"))
-    dl.start();
+app.get('/ambilfilepdf',(req,res)=>{
+    // const file = `gaji_${req.body.id}.pdf`
+    const path = `${__dirname}/filepdf/gaji_${req.query.id}.pdf`;
+
+    res.download(path)
+    // const dl = new DownloaderHelper(file,path)
+    // dl.on('end',()=>console.log("download completed"))
+    // dl.start();
 })
 app.listen(port,()=>{
     console.log({port});
