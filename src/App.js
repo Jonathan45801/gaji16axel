@@ -16,12 +16,16 @@ import DataDiriKaryawan from './component/Karyawan/DataDiriKaryawan';
 import DataAbsenKaryawan from './component/Karyawan/DataAbsenKaryawan';
 import LogAbsenKaryawan from './component/Admin/LogAbsenKaryawan';
 import LaporanAbsen from './component/Admin/LaporanAbsen';
+import Home from './component/Home';
+import Login from './component/Login';
 import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <>
     <Router>
       <Routes>
+        <Route path='/' element={<Home/>}></Route>
+        <Route path='/login' element={<Login/>}></Route>
         <Route path='/loginadmin' element={<LoginAdmin/>}></Route>
         <Route exact path='/dashboardadmin' element={<Dashboardadmin/>}>
           <Route path='homeadmin' element={<HomeAdmin/>}></Route>

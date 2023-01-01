@@ -30,7 +30,7 @@ const Dashboardadmin = () => {
  const checkcookie = ()=>{
   if(coo === null)
   {
-    lemparloginadmin('/loginadmin')
+    lemparloginadmin('/login')
   }
   else
   {

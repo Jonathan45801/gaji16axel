@@ -45,13 +45,13 @@ const LoginAdmin = () => {
   }
   return (
     <div className='flex justify-center items-center w-full h-screen bg-gradient-to-tl from-indigo-900 to-black'>
-        <div className='rounded-md flex w-[90rem] h-screen '>
+        <div className='rounded-md flex w-[90rem] h-full py-2 '>
           <div className='grid grid-cols-2 gap-4 place-items-center'>
-            <div className='bg-emerald-300 rounded-md w-[45rem] h-screen flex justify-center items-center'>
+            <div className='bg-slate-200 rounded-md w-[45rem] h-full flex justify-center items-center'>
               <div>
-                  <p className='text-black text-2xl font-bold tracking-wider'>Selamat Datang Di Nabire</p>
-                  <p className='text-black text-2xl font-bold tracking-wider'> BPS Kabupaten Nabire</p>
-                  <img src={Gmbarbps} className='h-[20rem] w-[42rem]' alt='gambarbps'></img>
+                  <p className='text-black text-4xl font-bold tracking-wider'>Selamat Datang Di Nabire</p>
+                  <p className='text-black text-3xl font-bold tracking-wider'> BPS Kabupaten Nabire</p>
+                  <img src={Gmbarbps} className='h-[30rem] w-[42rem] py-2' alt='gambarbps'></img>
                   <div className='flex-col py-12 tracking-wider'>
                     <p className='text-center'>Bps Kabupaten Nabire (Statistics of Nabire Regency) </p>
                     <p className='text-center'>Jalan Pepera No.18 Nabire-Papua (Kantor Statistik), 98815 </p> 
@@ -59,7 +59,7 @@ const LoginAdmin = () => {
                   </div>
               </div>
               </div>
-              <div className='bg-white rounded-md w-[25rem] h-[30rem] flex justify-center'>
+              <div className='bg-white rounded-md w-[20rem] h-[30rem] flex justify-center'>
                 <form method='GET' onSubmit={userlogin} >
                   <div className='flex-col'>
                     <div>

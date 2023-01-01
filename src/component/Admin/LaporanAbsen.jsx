@@ -32,10 +32,14 @@ const LaporanAbsen = () => {
                 Swal.fire("success","Silakan Download","success").then((h)=>{
                     if(h.isConfirmed)
                     {
-                        axios.post('/ambilfilepdf',{
-                            id:b
-                        }).then((re)=>{
-                            console.log(re)
+                        axios.get('/ambilfilepdf',{
+                            params:{
+                                id:b
+                            },
+                            responseType:'blob'
+                        }
+                        ).then((re)=>{
+                            window.open(URL.createObjectURL(re.data))
                         })
                     }
                 })

@@ -2,14 +2,22 @@ import React,{useState,useEffect} from 'react'
 import {MdOutlinePeople} from 'react-icons/md'
 import {AiOutlineClockCircle} from 'react-icons/ai'
 import Momen from 'moment'
+import axios from 'axios'
 const HomeAdmin = () => {
   const[jumlahkaryawan,Setjumlahkaryawan] = useState(0);
   const[Today,SetToday] = useState(new Date())
   function todayadminfunc(){
     SetToday(new Date())
   }
+  const datakaryawan = ()=>{
+    axios.get('/totalkaryawan').then((res)=>{
+      console.log(res)
+      Setjumlahkaryawan(res.data[0].total)
+    })
+  }
   useEffect(()=>{
      setInterval(todayadminfunc, 1000);
+     datakaryawan()
   },[])
   return (
     <div className='w-full h-full flex'>

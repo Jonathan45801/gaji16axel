@@ -21,7 +21,7 @@ const Dashboardkaryawan = () => {
   const checkcookie = ()=>{
     if(coo === null)
     {
-      lemparlogin('/loginkaryawan')
+      lemparlogin('/login')
     }
     else
     {

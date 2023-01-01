@@ -19,12 +19,12 @@ const HandleNav=(a,b)=>{
     SetNav(b)
 }
 const logoutadmin = () =>{
-    logoutadminnav('/loginadmin')
+    logoutadminnav('/login')
     Cookies.removeItem("useradmin");
 }
   return (
     <div className='flex'>
-        <div className={`${clickarrow ? 'w-72':'w-20'} bg-blue-600 p-5 pt-8 h-screen relative`}>
+        <div className={`${clickarrow ? 'w-72':'w-20'} bg-[#302b63] p-5 pt-8 h-screen relative`}>
             <div className={`absolute cursor-pointer -right-3 top-9 w-7 bg-white rounded-full ${!clickarrow && 'rotate-180'}`}>
                 <BiLeftArrowCircle size={35} onClick={()=>Setclickarrow(!clickarrow)}/>
             </div>
