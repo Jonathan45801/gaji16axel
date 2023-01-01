@@ -1,6 +1,6 @@
 import React from 'react'
 import logobps from'../Asset/logobps.png'
-// import TentangKami from './TentangKami'
+import TentangKami from './TentangKami'
 import { useNavigate } from 'react-router-dom'
 const Home = () => {
     const redirectlogin = useNavigate();
@@ -27,14 +27,14 @@ const Home = () => {
                     <p className='text-3xl'>BPS Kabupaten Nabire</p>
                 </div>
                 <div className='py-6'>
-                    <button type='button' className='rounded-md w-[10rem] h-[3rem] bg-[#393375] text-white text-md'>Tentang Kami</button>
+                    <button type='button' className='rounded-md w-[10rem] h-[3rem] bg-[#393375] text-white text-md'><a href='#tentangkami'>Tentang Kami</a></button>
                 </div>
             </div>
             <div></div>
 
         </div>
     </div>
-    {/* <TentangKami/> */}
+    <TentangKami/>
     </>
   )
 }
