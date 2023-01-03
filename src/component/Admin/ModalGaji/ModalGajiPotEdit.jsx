@@ -17,7 +17,6 @@ const ModalGajiPotEdit = ({open,idedit}) => {
         axios.get('/datapot').then((rese)=>{            
             Settambaheditdatapot({...tambaheditdatapot,jabatan:rese.data[0].jabatan})
             tambaheditdatapot.gajiterlambat = rese.data[0].gajiterlambat
-            tambaheditdatapot.bulan = rese.data[0].bulan
         })
     }
     const updatedatagaji=()=>{

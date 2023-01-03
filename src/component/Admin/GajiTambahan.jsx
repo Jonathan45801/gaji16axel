@@ -16,7 +16,7 @@ const GajiTambahan = () => {
 }
   const columnsgaji=[
       {
-          field:'jabatan',headerName:'Jabatan',width:300,editable:true
+          field:'jabatan',headerName:'Jenis',width:300,editable:true
       },
       {
           field:'gajitam',headerName:'Gaji',width:300,editable:true

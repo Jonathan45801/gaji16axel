@@ -25,8 +25,7 @@ const ModalGajiPot = ({open}) => {
             {
                 axios.post('/tambahpot',{
                     jabatan:tambahdatagajipot.jabatan,
-                    gaji:tambahdatagajipot.gajiterlambat,
-                    bulan:tambahdatagajipot.bulan
+                    gaji:tambahdatagajipot.gajiterlambat
                 }).then((res)=>{
                     if(res.data === "sukses")
                     {
@@ -65,9 +64,6 @@ const ModalGajiPot = ({open}) => {
                         </div>
                         <div className='flex  py-2'>
                              <TextField variant='outlined' label="Gaji Jabatan" size='small' onInput={matauanggajipottam} value={tambahdatagajipot.gajiterlambat} />
-                        </div>
-                        <div className='flex  py-2'>
-                             <TextField variant='outlined' label="Bulan Terlambat" size='small' value={tambahdatagajipot.bulan} onChange={(jab)=>Settambahdatagajipot({...tambahdatagajipot,bulan:jab.target.value})} />
                         </div>
                     </div>
                 </form>

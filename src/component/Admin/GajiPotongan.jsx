@@ -29,12 +29,6 @@ const GajiPotongan = () => {
       editable:true
     },
     {
-      field:'bulan',
-      headerName:'Bulan',
-      width:300,
-      editable:true
-    },
-    {
       field:'Action',type:"string",width:100,renderCell:(cellValue)=>{
         return (
             <div className='flex gap-x-4'>
