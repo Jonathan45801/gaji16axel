@@ -47,12 +47,12 @@ const generatorbody=(doc,nama,bulan,jabatan,jumlahgaji,gajiterlambat,santun,kete
     doc.text(`Total: ${separatorrupiah(total)}`,350,180).fontSize(10)
     doc.moveTo(50,200).lineTo(550,200).stroke();
 }
-const generatorakhir=(doc)=>{
+const generatorakhir=(doc,nama)=>{
     doc.text(`${moment().format("DD-MMM-YYYY")}`,350,210).fontSize(10)
     doc.text('Diketahui oleh ',110,220).fontSize(10)
     doc.text('Diterima oleh ',350,220).fontSize(10)
-    doc.text('AA',110,260).fontSize(10)
-    doc.text('BB',350,260).fontSize(10)
+    doc.text('Bendahara',110,260).fontSize(10)
+    doc.text(nama,350,260).fontSize(10)
 }
 exports.pdfjadi=async(id,tanggal)=>{
     let output = new pdfgenerator
@@ -65,7 +65,9 @@ exports.pdfjadi=async(id,tanggal)=>{
         generatorbody(output,b[0].nama,b[0].bulan,b[0].jabatan,b[0].jumlah_gaji,b[0].gajiterlambat,b[0].santun,b[0].keterangan,b[0].terlambat,b[0].terlambatabsen)
     )
     output.moveDown();
-    generatorakhir(output)
+    await getdatafromtable(id,tanggal).then(b=> 
+        generatorakhir(output,b[0].nama)
+    )
     output.end()
     return "sukses"
 }

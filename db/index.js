@@ -192,8 +192,7 @@ app.get('/datagaji',(req,res)=>{
 app.post('/tambahpot',(req,res)=>{
     const jabatan = req.body.jabatan
     const gaji = req.body.gaji.replace(/,/g,"");
-    const bulan = req.body.bulan;
-    config.pool.query("insert into tb_terlambat values(null,?,?,?)",[jabatan,gaji,bulan],(err,rese)=>{
+    config.pool.query("insert into tb_terlambat values(null,?,?,0)",[jabatan,gaji],(err,rese)=>{
         if(err) 
         {
             res.send("error");
@@ -207,7 +206,7 @@ app.post('/tambahpot',(req,res)=>{
     })
 })
 app.get('/datapot',(req,res)=>{
-    config.pool.query("select id,jabatan,format(gajiterlambat,'id_ID') as gajiterlambat,bulan from tb_terlambat",(err,rese)=>{
+    config.pool.query("select id,jabatan,format(gajiterlambat,'id_ID') as gajiterlambat from tb_terlambat",(err,rese)=>{
         res.send(rese)
     })
 })
@@ -215,8 +214,7 @@ app.post('/updatepot',(req,res)=>{
     const id = req.body.params.id
     const jabatan = req.body.jabatan
     const gaji = req.body.gaji.replace(/,/g,'');
-    const bulan = req.body.bulan
-    config.pool.query("update tb_terlambat set jabatan = ?, gajiterlambat = ? , bulan = ? where id = '"+id+"'",[jabatan,gaji,bulan],(err,rese)=>{
+    config.pool.query("update tb_terlambat set jabatan = ?, gajiterlambat = ?  where id = '"+id+"'",[jabatan,gaji,bulan],(err,rese)=>{
         if(err)
             res.send("error")
         else
