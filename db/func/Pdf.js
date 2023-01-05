@@ -25,7 +25,7 @@ async function getdatafromtable(id,tanggal){
 const generatorbody=(doc,nama,bulan,jabatan,jumlahgaji,gajiterlambat,santun,keterangan,terlambat,terlambatabsen)=>{
     let duitterlambat = 0;
     let tanpaketerangan = 0;
-    let pph = 125000;
+    let pph = 25000;
     let total = 0;
     doc.text(`Nama: `+nama,110,75).fontSize(10)
     doc.text(`periode: ${bulan}`,350,75).fontSize(10)

@@ -140,8 +140,7 @@ app.get('/admin',(req,res)=>{
 app.post('/inserttabletambahan',(req,res)=>{
     const jabatan = req.body.jabatan
     const gaji = req.body.gaji.replace(/,/g,'');
-    const keterangan = req.body.keterangan
-    config.pool.query("insert into tb_tambahan values(null,?,?,?)",[jabatan,gaji,keterangan],(err,resu)=>{
+    config.pool.query("insert into tb_tambahan values(null,?,?,'')",[jabatan,gaji],(err,resu)=>{
         if(err)
         {
             res.send("error")
@@ -155,7 +154,7 @@ app.post('/inserttabletambahan',(req,res)=>{
 });
 
 app.get('/datatambahan',(req,res)=>{
-    config.pool.query("select id,jabatan,format(gajitam,'id_ID') as gajitam,keterangan from tb_tambahan",(err,rese)=>{
+    config.pool.query("select id,jabatan,format(gajitam,'id_ID') as gajitam from tb_tambahan",(err,rese)=>{
         if(err)
             console.log(err);
        res.send(rese);
