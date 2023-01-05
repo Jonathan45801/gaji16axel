@@ -6,7 +6,7 @@ import {IoCloseOutline} from 'react-icons/io5'
 import Swal from 'sweetalert2'
 import axios from 'axios'
 const ModalGajiTambahan = ({open}) => {
-    const[tambahdatagaji,Settambahdatagaji] = useState({jabatan:"",gaji:"",keterangan:""})
+    const[tambahdatagaji,Settambahdatagaji] = useState({jabatan:"",gaji:""})
     const koma = num => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",")
     const hapusbukanangka = num => num.toString().replace(/[^0-9]/g, "")
     const matauanggaji = e=>{
@@ -26,7 +26,6 @@ const ModalGajiTambahan = ({open}) => {
                 axios.post('/inserttabletambahan',{
                     jabatan:tambahdatagaji.jabatan,
                     gaji:tambahdatagaji.gaji,
-                    keterangan:tambahdatagaji.keterangan
                 }).then((da)=>{
                     if(da.data === "sukses")
                     {
@@ -64,9 +63,6 @@ const ModalGajiTambahan = ({open}) => {
                         </div>
                         <div className='flex  py-2'>
                              <TextField variant='outlined' label="Gaji Jabatan" size='small' onInput={matauanggaji} value={tambahdatagaji.gaji} />
-                        </div>
-                        <div className='py-2'>
-                            <TextField variant='outlined' label="Keterangan" size='small' value={tambahdatagaji.keterangan} onChange={(ket1)=>Settambahdatagaji({...tambahdatagaji,keterangan:ket1.target.value})} />
                         </div>
                     </div>
                 </form>

@@ -19,10 +19,7 @@ const GajiTambahan = () => {
           field:'jabatan',headerName:'Jenis',width:300,editable:true
       },
       {
-          field:'gajitam',headerName:'Gaji',width:300,editable:true
-      },
-      {
-          field:'keterangan',headerName:'Keterangan',width:500,editable:true
+          field:'gajitam',headerName:'Nominal',width:300,editable:true
       },
       {
           field:'Action',type:"string",width:100,renderCell:(cellValue)=>{

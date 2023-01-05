@@ -18,7 +18,7 @@ const GajiPotongan = () => {
   const kolomgajipot=[
     {
       field:'jabatan',
-      headerName:'Jabatan',
+      headerName:'Jenis',
       width:300,
       editable:true
     },
