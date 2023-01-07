@@ -35,8 +35,7 @@ const ModalGajiPotEdit = ({open,idedit}) => {
                         id:idedit
                     },
                     jabatan:tambaheditdatapot.jabatan,
-                    gaji:tambaheditdatapot.gajiterlambat,
-                    bulan:tambaheditdatapot.bulan
+                    gaji:tambaheditdatapot.gajiterlambat
                 }).then((rese)=>{
                    if(rese.data === "sukses")
                    {
@@ -73,13 +72,10 @@ const ModalGajiPotEdit = ({open,idedit}) => {
                 <form method='POST'>
                     <div className='py-2'>
                         <div className='flex'>
-                            <TextField variant='outlined' label="Jabatan" size='small' value={tambaheditdatapot.jabatan} onChange={(jab)=>Settambaheditdatapot({...tambaheditdatapot,jabatan:jab.target.value})} type="text" />
+                            <TextField variant='outlined' label="Jenis" size='small' value={tambaheditdatapot.jabatan} onChange={(jab)=>Settambaheditdatapot({...tambaheditdatapot,jabatan:jab.target.value})} type="text" />
                         </div>
                         <div className='flex  py-2'>
-                             <TextField variant='outlined' label="Gaji Jabatan" size='small' onInput={matauanggajipotedit} value={tambaheditdatapot.gajiterlambat} />
-                        </div>
-                        <div className='flex  py-2'>
-                             <TextField variant='outlined' label="Bulan" size='small' value={tambaheditdatapot.bulan} onChange={(jab)=>Settambaheditdatapot({...tambaheditdatapot,bulan:jab.target.value})} type="text"/>
+                             <TextField variant='outlined' label="Nominal" size='small' onInput={matauanggajipotedit} value={tambaheditdatapot.gajiterlambat} />
                         </div>
                     </div>
                 </form>

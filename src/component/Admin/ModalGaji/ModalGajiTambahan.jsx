@@ -59,10 +59,10 @@ const ModalGajiTambahan = ({open}) => {
                 <form method='POST'>
                     <div className='py-2'>
                         <div className='flex'>
-                            <TextField variant='outlined' label="Jabatan" size='small' value={tambahdatagaji.jabatan} onChange={(jab)=>Settambahdatagaji({...tambahdatagaji,jabatan:jab.target.value})} type="text" />
+                            <TextField variant='outlined' label="Jenis" size='small' value={tambahdatagaji.jabatan} onChange={(jab)=>Settambahdatagaji({...tambahdatagaji,jabatan:jab.target.value})} type="text" />
                         </div>
                         <div className='flex  py-2'>
-                             <TextField variant='outlined' label="Gaji Jabatan" size='small' onInput={matauanggaji} value={tambahdatagaji.gaji} />
+                             <TextField variant='outlined' label="Nominal" size='small' onInput={matauanggaji} value={tambahdatagaji.gaji} />
                         </div>
                     </div>
                 </form>

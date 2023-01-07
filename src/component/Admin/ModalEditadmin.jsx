@@ -18,6 +18,7 @@ const ModalEditadmin = ({open,idedit}) => {
     }
     
     const tanggallahirok = e =>{
+        console.log(e);
         Setdataedit({...dataedit,tanggallahir:e})
     }
     const updatekar=()=>{
