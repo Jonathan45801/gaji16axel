@@ -171,8 +171,7 @@ app.post('/updategajitam',(req,res)=>{
     const id = req.body.params.id;
     const jabatan = req.body.jabatan
     const gaji = req.body.gaji.replace(/,/g,'');
-    const keterangan = req.body.keterangan
-    config.pool.query("update tb_tambahan set jabatan = ? , gajitam = ? , keterangan = ? where id='"+id+"'",[jabatan,gaji,keterangan],(err,has)=>{
+    config.pool.query("update tb_tambahan set jabatan = ? , gajitam = ? where id='"+id+"'",[jabatan,gaji],(err,has)=>{
         if(err)
             res.send("error")
         else
@@ -213,7 +212,7 @@ app.post('/updatepot',(req,res)=>{
     const id = req.body.params.id
     const jabatan = req.body.jabatan
     const gaji = req.body.gaji.replace(/,/g,'');
-    config.pool.query("update tb_terlambat set jabatan = ?, gajiterlambat = ?  where id = '"+id+"'",[jabatan,gaji,bulan],(err,rese)=>{
+    config.pool.query("update tb_terlambat set jabatan = ?, gajiterlambat = ?  where id = '"+id+"'",[jabatan,gaji],(err,rese)=>{
         if(err)
             res.send("error")
         else
