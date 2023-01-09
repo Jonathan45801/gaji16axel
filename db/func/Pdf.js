@@ -51,14 +51,15 @@ const generatorbody=(doc,nama,bulan,jabatan,jumlahgaji,gajiterlambat,bayarterlam
     total = jumlah_gaji + uang_makan - duitterlambat - tanpaketerangan - pph;
     
     doc.text(`Total: ${separatorrupiah(total)}`,350,190).fontSize(10)
-    doc.moveTo(50,200).lineTo(550,200).stroke();
+    doc.text(`Sakit / ijin : ${santun}`,350,200).fontSize(10)
+    doc.moveTo(50,210).lineTo(550,210).stroke();
 }
 const generatorakhir=(doc,nama)=>{
-    doc.text(`${moment().format("DD-MMM-YYYY")}`,350,210).fontSize(10)
-    doc.text('Diketahui oleh ',110,220).fontSize(10)
-    doc.text('Diterima oleh ',350,220).fontSize(10)
-    doc.text('Bendahara',110,260).fontSize(10)
-    doc.text(nama,350,260).fontSize(10)
+    doc.text(`${moment().format("DD-MMM-YYYY")}`,350,220).fontSize(10)
+    doc.text('Diketahui oleh ',110,230).fontSize(10)
+    doc.text('Diterima oleh ',350,230).fontSize(10)
+    doc.text('Bendahara',110,270).fontSize(10)
+    doc.text(nama,350,270).fontSize(10)
 }
 exports.pdfjadi=async(id,tanggal)=>{
     let output = new pdfgenerator
