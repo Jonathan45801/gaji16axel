@@ -24,7 +24,7 @@ const GajiPotongan = () => {
     },
     {
       field:'gajiterlambat',
-      headerName:'Gaji Terlambat',
+      headerName:'Nominal',
       width:300,
       editable:true
     },

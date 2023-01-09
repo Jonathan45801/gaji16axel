@@ -80,10 +80,10 @@ const ModalLaporanabsen = ({open,idedit,tanggalf}) => {
             <form method='POST'>
                 <div className='py-2'>
                     <div className='flex'>
-                        <TextField variant='outlined' label="Sanitun" size='small' value={editlaporanabsen.santun} onChange={(jab)=>Seteditlaporanabsen({...editlaporanabsen,santun:jab.target.value})} type="text" />
+                        <TextField variant='outlined' label='Sakit / ijin' size='small'  value={editlaporanabsen.santun} onChange={(jab)=>Seteditlaporanabsen({...editlaporanabsen,santun:jab.target.value})} type="number" />
                     </div>
                     <div className='flex  py-2'>
-                         <TextField variant='outlined' label="Keterangan" size='small' value={editlaporanabsen.keteran} onChange={(jab)=>Seteditlaporanabsen({...editlaporanabsen,keteran:jab.target.value})} type="text"/>
+                         <TextField variant='outlined' label="Keterangan" size='small' value={editlaporanabsen.keteran} onChange={(jab)=>Seteditlaporanabsen({...editlaporanabsen,keteran:jab.target.value})} type="number"/>
                     </div>
                 </div>
             </form>

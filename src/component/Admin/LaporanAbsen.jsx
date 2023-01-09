@@ -59,12 +59,12 @@ const LaporanAbsen = () => {
         },
         {
             field:"santun",
-            headerName:"Sanitun",            
+            headerName:"Sakit / Ijin",            
             width:300,
         },
         {
             field:"keterangan",
-            headerName:"Keterangan",
+            headerName:"Tanpa Keterangan",
             width:300,
         },
         {
@@ -85,7 +85,6 @@ const LaporanAbsen = () => {
                 tanggal:filterbulan._d,
             }
         }).then((response)=>{
-            console.log(response)
                 Setrowsabsenlap(response.data)
         })
     }
