@@ -435,9 +435,10 @@ app.post('/simpansantunketerangan',(req,res)=>{
         }
         else
         {
-            if(check.toString() != "")
+            
+            if(check[0].id_karyawan.toString() != "")
             {
-                config.pool.query("update tb_laporan set santun = '"+santun+"',keterangan ='"+keteran+"' where id_karyawan = ? and bulan = ?",[id,santun],(err1,rese)=>{
+                config.pool.query("update tb_laporan set santun = '"+santun+"',keterangan = '"+keteran+"' where id_karyawan = ? and bulan = ?",[id,tanggal1],(err1,rese)=>{
                     if(err1)
                     {
                         console.log(err1)
@@ -450,6 +451,7 @@ app.post('/simpansantunketerangan',(req,res)=>{
             }
             else
             {
+                
                 config.pool.query("insert into tb_laporan (id,id_karyawan,santun,bulan,keterangan,cetak) values(null,?,?,?,?,0)",[id,santun,tanggal1,keteran],(err2,reseup)=>{
                     if(err2)
                     {
