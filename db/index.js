@@ -285,7 +285,7 @@ app.post('/absenmasuk',(req,res)=>{
         }
     })
 })
-app.get('/absenkeluar',(req,res)=>{
+app.post('/absenkeluar',(req,res)=>{
     const waktusekarang = moment().format("HH:mm")
     const cekjam = 0
     // cekjam = Validjam.jamkeluar()
