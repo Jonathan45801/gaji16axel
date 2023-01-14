@@ -24,7 +24,7 @@ exports.jamkeluar = ()=>{
     }
     else
     {
-        return 0
+        return 
     }
     
 }

@@ -14,6 +14,7 @@ const generatorheader=(doc)=>{
     doc.moveTo(awalpage,70).lineTo(akhirpage,70).stroke()
 }
 async function getdatafromtable(id,tanggal){
+    // 
     const promisepool = config.pool.promise()
     const[rows,fields] = await promisepool.query("select a.nama,a.jabatan,b.bulan,a.jumlah_gaji, "+
     "(select gajiterlambat from tb_terlambat where id = '2') as gajiterlambat, "+
@@ -31,8 +32,9 @@ const generatorbody=(doc,nama,bulan,jabatan,jumlahgaji,gajiterlambat,bayarterlam
     var uang_makan = parseFloat(uangmakan);
     let pph = 25000;
     let total = 0;
-    let uanglembur = 10000
-    let bayarlembur = parseFloat(lembur * uanglembur);
+    // let uanglembur = 10000
+    let bayarlembur = 0;
+    // bayarlembur = parseFloat(lembur * uanglembur)
     doc.text(`Nama: `+nama,110,75).fontSize(10)
     doc.text(`periode: ${bulan}`,350,75).fontSize(10)
     doc.text(`Jabatan: ${jabatan}`,110,90).fontSize(10)     
@@ -42,27 +44,27 @@ const generatorbody=(doc,nama,bulan,jabatan,jumlahgaji,gajiterlambat,bayarterlam
     doc.text(`Sistem Pembayaran : CASH`,110,120).fontSize(10)
     doc.text(`Gaji Pokok : ${separatorrupiah(jumlahgaji)}`, 350,130).fontSize(10)
     doc.text(`Makan / Transportasi : ${separatorrupiah(uangmakan)}`, 350,140).fontSize(10)
-    doc.text(`Lembur : ${separatorrupiah(bayarlembur)}`,350,150).fontSize(10)
+    // doc.text(`Lembur : ${separatorrupiah(bayarlembur)}`,350,150).fontSize(10)
     // if(terlambatabsen > terlambat)
     // {
     //     duitterlambat = gajiterlambat * terlambat
     // }
-    doc.text(`Terlambat : ${separatorrupiah(duitterlambat)}`,350,160).fontSize(10)
-    doc.text(`tanpa Keterangan: ${separatorrupiah(tanpaketerangan)}`,350,170).fontSize(10)
-    doc.text(`PPH: ${separatorrupiah(pph)}`,350,180).fontSize(10)
-    doc.moveTo(350,190).lineTo(550,190).stroke();
+    doc.text(`Terlambat : ${separatorrupiah(duitterlambat)}`,350,150).fontSize(10)
+    doc.text(`tanpa Keterangan: ${separatorrupiah(tanpaketerangan)}`,350,160).fontSize(10)
+    doc.text(`PPH: ${separatorrupiah(pph)}`,350,170).fontSize(10)
+    doc.moveTo(350,180).lineTo(550,180).stroke();
     total = (jumlah_gaji + uang_makan + bayarlembur) - duitterlambat - tanpaketerangan - pph;
     
-    doc.text(`Total: ${separatorrupiah(total)}`,350,200).fontSize(10)
-    doc.text(`Sakit / ijin : ${santun}`,350,210).fontSize(10)
-    doc.moveTo(50,220).lineTo(550,220).stroke();
+    doc.text(`Total: ${separatorrupiah(total)}`,350,190).fontSize(10)
+    doc.text(`Sakit / ijin : ${santun}`,350,200).fontSize(10)
+    doc.moveTo(50,210).lineTo(550,210).stroke();
 }
 const generatorakhir=(doc,nama)=>{
-    doc.text(`${moment().format("DD-MMM-YYYY")}`,350,230).fontSize(10)
-    doc.text('Diketahui oleh ',110,240).fontSize(10)
-    doc.text('Diterima oleh ',350,240).fontSize(10)
-    doc.text('Bendahara',110,280).fontSize(10)
-    doc.text(nama,350,280).fontSize(10)
+    doc.text(`${moment().format("DD-MMM-YYYY")}`,350,220).fontSize(10)
+    doc.text('Diketahui oleh ',110,230).fontSize(10)
+    doc.text('Diterima oleh ',350,230).fontSize(10)
+    doc.text('Bendahara',110,270).fontSize(10)
+    doc.text(nama,350,270).fontSize(10)
 }
 exports.pdfjadi=async(id,tanggal)=>{
     let output = new pdfgenerator

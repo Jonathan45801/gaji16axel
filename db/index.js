@@ -287,8 +287,9 @@ app.post('/absenmasuk',(req,res)=>{
 })
 app.get('/absenkeluar',(req,res)=>{
     const waktusekarang = moment().format("HH:mm")
-    const cekjam = Validjam.jamkeluar()
-    
+    const cekjam = 0
+    // cekjam = Validjam.jamkeluar()
+    // cekjam = 0;
     const today = moment().format("YYYY-MM-DD")
     config.pool.query("select id from tb_karyawan where user_login = ?",[req.body.params.user],(err,rese)=>{
         if(err)
