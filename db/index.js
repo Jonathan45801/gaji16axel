@@ -285,9 +285,10 @@ app.post('/absenmasuk',(req,res)=>{
         }
     })
 })
-app.post('/absenkeluar',(req,res)=>{
+app.get('/absenkeluar',(req,res)=>{
     const waktusekarang = moment().format("HH:mm")
-    const terlambat1 = Validjam.jammasuk() === "telat"? 1 : 0;
+    const cekjam = Validjam.jamkeluar()
+    
     const today = moment().format("YYYY-MM-DD")
     config.pool.query("select id from tb_karyawan where user_login = ?",[req.body.params.user],(err,rese)=>{
         if(err)
@@ -306,7 +307,7 @@ app.post('/absenkeluar',(req,res)=>{
                 {
                     if(dat.toString() === "")
                     {
-                        config.pool.query("insert into tb_absen(id,id_karyawan,tanggal,jam_pulang,terlambat) values (null,?,SYSDATE(),?,?)",[dataid,waktusekarang,terlambat1],(err,rese)=>{
+                        config.pool.query("insert into tb_absen(id,id_karyawan,tanggal,jam_pulang,lembur) values (null,?,SYSDATE(),?,?)",[dataid,waktusekarang,cekjam],(err,rese)=>{
                             if(err)
                             {
                                 console.log(err)
@@ -320,7 +321,7 @@ app.post('/absenkeluar',(req,res)=>{
                     }
                     else
                     {
-                        config.pool.query("update tb_absen set jam_pulang = '"+waktusekarang+"' where id_karyawan = ? and tanggal = ?",[dataid,today],(err1,dat1)=>{
+                        config.pool.query("update tb_absen set jam_pulang = '"+waktusekarang+"',lembur = '"+cekjam+"' where id_karyawan = ? and tanggal = ?",[dataid,today],(err1,dat1)=>{
                             if(err1)
                             {
                                 res.send("error")

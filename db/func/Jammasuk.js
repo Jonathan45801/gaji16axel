@@ -10,3 +10,21 @@ exports.jammasuk = () =>{
     else 
         return "aman"
 }
+
+exports.jamkeluar = ()=>{
+    const jamkeluar = new Date();
+    jamkeluar.setHours(16,0);
+    const sekarang = jamkeluar.getHours() === 0 ? 24 : jamkeluar.getHours()
+    const jamsekarang = new Date();
+    const hitungjam = (jamsekarang - jamkeluar) / (60*60*1000)
+    
+    if(sekarang > 16 && sekarang <= 24)
+    {
+        return  hitungjam.toFixed(0)
+    }
+    else
+    {
+        return 0
+    }
+    
+}
